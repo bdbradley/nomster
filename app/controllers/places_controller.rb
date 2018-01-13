@@ -1,4 +1,4 @@
-class PlacesController < ApplicationController
+  class PlacesController < ApplicationController
 
   def index
     @places = Place.paginate(:page => params[:page], :per_page => 5)
@@ -14,7 +14,7 @@ class PlacesController < ApplicationController
   end
 
   private
-#How is :name, :description, etc. pulled from new.html.erb? 
+#Says that user f.input created in new.html.erb is permitted and required  
   def place_params
     params.require(:place).permit(:name, :description, :address)
 
