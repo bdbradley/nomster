@@ -3,6 +3,10 @@
     <h1><%= place.name %></h1><br />
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
+    <!--if a place has a user, add the user email to the index page-->
+    <% if place.user.present? %>
+      <small><%= place.user.email %></small>
+    <% end %>
   </div>
 
 <% end %>
