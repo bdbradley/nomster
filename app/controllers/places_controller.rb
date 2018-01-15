@@ -19,6 +19,13 @@
       redirect_to root_path
   end
 
+def show
+  #apparently loads The Place id into the variable @place to be
+  #passed to the show.html.erb view file so the place name a user
+  #clicks on will show up on the page
+  @place = Place.find(params[:id])
+end
+
   private
 #Says that user f.input created in new.html.erb is permitted and required  
   def place_params
