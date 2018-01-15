@@ -29,6 +29,13 @@ end
 def edit
   @place = Place.find(params[:id])
 end
+
+def update
+  @place = Place.find(params[:id])
+  @place.update_attributes(place_params)
+  redirect_to root_path
+end
+
     private
 #Says that user f.input created in new.html.erb is permitted and required  
   def place_params
