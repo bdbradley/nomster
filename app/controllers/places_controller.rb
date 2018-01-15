@@ -26,7 +26,10 @@ def show
   @place = Place.find(params[:id])
 end
 
-  private
+def edit
+  @place = Place.find(params[:id])
+end
+    private
 #Says that user f.input created in new.html.erb is permitted and required  
   def place_params
     params.require(:place).permit(:name, :description, :address)
