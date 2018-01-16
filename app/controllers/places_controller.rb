@@ -16,13 +16,18 @@
   def create
       #Place.create(place_params)
       #Creates a place connected with the user. Knows this bc of has_many :places
-      #in the user.rb file
-      current_user.places.create(place_params)
-      redirect_to root_path
+      #in the user.rb file and sets it to @place
+      @place = current_user.places.create(place_params)
+      #if place valid, go to root_path, else go to the new form again and throw validation error
+      if @place.valid?
+        redirect_to root_path
+      else
+        render :new, status: :unprocessable_entity
+      end
   end
 
 def show
-  #apparently loads The Place id into the variable @place to be
+  #apparently loads the Place id into the variable @place to be
   #passed to the show.html.erb view file so the place name a user
   #clicks on will show up on the page
   @place = Place.find(params[:id])
@@ -44,7 +49,12 @@ def update
   end
 
   @place.update_attributes(place_params)
-  redirect_to root_path
+  #if place valid, go to root_path, else go to the edit form again and throw validation error
+  if @place.valid?
+    redirect_to root_path
+  else
+    render :edit, status: :unprocessable_entity
+  end
 end
 #def destroy will trigger destroy in show.html.erb
 def destroy
