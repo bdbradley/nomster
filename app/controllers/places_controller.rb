@@ -35,6 +35,15 @@ def update
   @place.update_attributes(place_params)
   redirect_to root_path
 end
+#will triger destroy in show.html.erb
+def destroy
+  #finds the :id of the place 
+  @place = Place.find(params[:id])
+  #destroys the found place
+  @place.destroy
+  #the directs user back to root_path
+  redirect_to root_path
+end
 
     private
 #Says that user f.input created in new.html.erb is permitted and required  
