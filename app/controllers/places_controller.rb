@@ -1,4 +1,6 @@
   class PlacesController < ApplicationController
+    #Only a logged in yuser can access the new, create etc methods
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update]
         #Allows a before filter which only lets logged in users
         #access 'new' and 'create'. Users not logged in will be directed
         #to the login in page when clicking on 'new place'
@@ -28,10 +30,19 @@ end
 
 def edit
   @place = Place.find(params[:id])
+  #Only the current user that's signed in can access and edit their places
+  if @place.user != current_user
+    return render text: 'Not Allowed', status: :forbidden
+  end
 end
 
 def update
   @place = Place.find(params[:id])
+  #Only the current user that's signed in can access and update their places
+  if @place.user != current_user
+    return render text: 'Not Allowed', status: :forbidden
+  end
+
   @place.update_attributes(place_params)
   redirect_to root_path
 end
