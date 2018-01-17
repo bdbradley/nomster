@@ -28,6 +28,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'simple_form'
 gem "font-awesome-rails"
 gem 'devise'
+gem "geocoder"
+gem "figaro"
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
