@@ -31,6 +31,7 @@ def show
   #passed to the show.html.erb view file so the place name a user
   #clicks on will show up on the page
   @place = Place.find(params[:id])
+  @comment = Comment.new
 end
 
 def edit
