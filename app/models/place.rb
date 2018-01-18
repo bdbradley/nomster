@@ -1,5 +1,8 @@
 class Place < ApplicationRecord
+  #because a place belongs to a specific user and a place has many comments
   belongs_to :user
+  has_many :comments
+  
   geocoded_by :address
   after_validation :geocode
   #Uses active_record validations to mean that each place has to have a name, address, and description
