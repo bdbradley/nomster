@@ -56,7 +56,7 @@
 <!--make sure to add clear class in master.scss for clear to work-->
 <div class="clear"></div>
 <!--Uses the simple_form gem, the url:'#' is where the comment form should be posted-->
-<%= simple_form_for @comment, url: '#' do |f| %>
+<%= simple_form_for @comment, url:  place_comments_path(@place) do |f| %>
   <%= f.input :message %>
   <%= f.input :rating %>
   <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
