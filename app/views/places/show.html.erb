@@ -4,10 +4,17 @@
   <br/><br/>
   <p><%= @place.description %></p>
 
+<!--Displays image on page from carrierwave gem, otherwise image isn't shown-->
+  <% @place.photos.each do |photo| %>
+    <%= image_tag photo.picture %>
+    <%= photo.caption %>
+  <% end %>
+
 <div class="booyah-box col-12">
   <h1>Add a photo</h1>
   <%= simple_form_for @photo, url:  place_photos_path(@place) do |f| %>
     <%= f.input :picture %>
+    <%= f.input :caption %>
     <%= f.submit "Submit a photo", class: 'btn btn-primary' %>  
   <% end %>
 </div>
