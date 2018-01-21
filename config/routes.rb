@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'places#index'
   
   resources :places do
-    resources :comments, :photos, only: :create
+    resources :comments, only: :create
+    resources :photo, only: :create
   end
 end

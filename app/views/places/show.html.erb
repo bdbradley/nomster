@@ -6,7 +6,7 @@
 
 <div class="booyah-box col-12">
   <h1>Add a photo</h1>
-  <%= simple_form_for @photo do |f| %>
+  <%= simple_form_for @photo, url:  place_photos_path(@place) do |f| %>
     <%= f.input :picture %>
     <%= f.submit "Submit a photo", class: 'btn btn-primary' %>  
   <% end %>
