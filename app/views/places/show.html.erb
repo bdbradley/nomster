@@ -56,12 +56,6 @@
 <!--make sure to add clear class in master.scss for clear to work-->
 <div class="clear"></div>
 
-<!--Code for modal-->
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add a comment
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -73,7 +67,8 @@
         <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
       </div>
       <div class="modal-body">
-        <!--Uses the simple_form gem, the url:'#' is where the comment form should be posted-->
+        <!--Uses the simple_form gem, the url:'# if you haven't found
+        the path yet' is where the comment form should direct to-->
         <%= simple_form_for @comment, url:  place_comments_path(@place) do |f| %>
           <%= f.input :message %>
           <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
@@ -88,10 +83,21 @@
   </div>
 </div>
 
-<h1>Comments</h1>
+<div class="col-10 offset-1"</div>
+  <h1 class="float-left">Comments</h1>
+  <!--Code for modal-->
+  <!-- Button trigger modal (Modal code listed above)-->
+  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+    Add a comment
+  </button>
+</div>
 
+<div class="clear"</div>
+
+<!--Make sure to wrap col-12, col-sm-6 in a div class="row" for them to work-->
+<div class="row">
 <% @place.comments.each do |comment| %>
-  <div>
+  <div class="col-12 col-sm-6">
     <blockquote>
       <!--Calls humanized_rating method set in comment.rb model-->
       <% if comment.humanized_rating.present? %>
