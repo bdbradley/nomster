@@ -5,7 +5,5 @@ class CreatePhotos < ActiveRecord::Migration[5.0]
       t.integer :place_id
       t.timestamps
     end
-
-    add_index :photos, :place_id
   end
 end
