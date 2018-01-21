@@ -6,4 +6,5 @@ class User < ApplicationRecord
 #because one user will have many comments and places they add in the db
   has_many :places
   has_many :comments
+  has_many :photos
 end

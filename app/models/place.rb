@@ -2,6 +2,7 @@ class Place < ApplicationRecord
   #because a place belongs to a specific user and a place has many comments
   belongs_to :user
   has_many :comments
+  has_many :photos
   
   geocoded_by :address
   after_validation :geocode

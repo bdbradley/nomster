@@ -32,6 +32,8 @@ def show
   #clicks on will show up on the page
   @place = Place.find(params[:id])
   @comment = Comment.new
+  #Add to make photo variable valid in show.html.erb
+  @photo = Photo.new
 end
 
 def edit
