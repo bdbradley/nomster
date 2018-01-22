@@ -10,18 +10,12 @@
     <%= photo.caption %>
   <% end %>
 
-<div class="booyah-box col-12">
-  <h1>Add a photo</h1>
-  <%= simple_form_for @photo, url:  place_photos_path(@place) do |f| %>
-    <%= f.input :picture %>
-    <%= f.input :caption %>
-    <%= f.submit "Submit a photo", class: 'btn btn-primary' %>  
-  <% end %>
-</div>
 
+<!--Not sure why I still have the style tags here, they probably need to be removed-->
 <style>
    
-  </style>
+</style>
+  
   </head>
   <body>
   <div id="map"></div>
@@ -62,15 +56,13 @@
     <!--Lets user delete place and only shows destory button once user is logged in, due to if statement abov-->
       <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger' %>
     <% end %>
-    
-    <!--Lets user destroy place, confirm makes sure you want to delete it-->
-  
   </div>
 </div>
 <!--make sure to add clear class in master.scss for clear to work-->
+
 <div class="clear"></div>
 
-<!-- Modal -->
+<!-- Comment Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -78,7 +70,49 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+        <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
+      </div>
+      <div class="modal-body">
+        <!--Uses the simple_form gem, the url:'# if you haven't found
+        the path yet' is where the comment form should direct to-->
+        <div class="booyah-box col-12">
+          <h1>Add a photo</h1>
+          <%= simple_form_for @photo, url:  place_photos_path(@place) do |f| %>
+            <%= f.input :picture %>
+            <%= f.input :caption %>
+            <%= f.submit "Submit a photo", class: 'btn btn-primary' %>  
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-10 offset-1"</div>
+  <!--<h1 class="float-left">Add photos</h1> I don't need this text here-->
+  <!--Code for modal-->
+  <!-- Button trigger modal (Modal code listed above)-->
+  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+    Add a photo
+  </button>
+</div>
+<!--Comment modal end-->
+
+<div class="clear"</div>
+
+<!-- Photo Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
       </div>
       <div class="modal-body">
         <!--Uses the simple_form gem, the url:'# if you haven't found
@@ -96,17 +130,16 @@
     </div>
   </div>
 </div>
+<!--Photo modal end-->
 
 <div class="col-10 offset-1"</div>
-  <h1 class="float-left">Comments</h1>
+  <!--<h1 class="float-left">Comments</h1> I don't need this text here-->
   <!--Code for modal-->
   <!-- Button trigger modal (Modal code listed above)-->
   <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
     Add a comment
   </button>
 </div>
-
-<div class="clear"</div>
 
 <!--Make sure to wrap col-12, col-sm-6 in a div class="row" for them to work-->
 <div class="row">
