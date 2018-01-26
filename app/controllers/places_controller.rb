@@ -6,7 +6,7 @@
         #to the login in page when clicking on 'new place'
       before_action :authenticate_user!, only: [:new, :create]
   def index
-    @places = Place.paginate(:page => params[:page], :per_page => 5)
+    @places = Place.paginate(:page => params[:page], :per_page => 10)
   end
 
   def new

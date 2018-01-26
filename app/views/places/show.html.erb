@@ -22,15 +22,12 @@
 
 <% if @place.latitude.present? && @place.longitude.present? %>
   <script>
-
     function initMap() {
       var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
-
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
         center: myLatLng
       });
-
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
@@ -83,7 +80,7 @@
             <%= f.submit "Submit a photo", class: 'btn btn-primary' %>  
           <% end %>
         </div>
-        </div>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
@@ -93,7 +90,7 @@
 </div>
 
 <div class="col-10 offset-1"</div>
-  <!--<h1 class="float-left">Add photos</h1> I don't need this text here-->
+  <!--Make sure data-target and id are unique to each modal i.e. mymodal and mymodal1-->
   <!--Code for modal-->
   <!-- Button trigger modal (Modal code listed above)-->
   <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
@@ -103,7 +100,7 @@
 <!--Photo modal end-->
 
 <div class="clear"</div>
-<!--Make sure id and data target names are unique to each modal, like this is myModal1-->
+
 <!-- Comment Modal -->
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -112,7 +109,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
+        <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
       </div>
       <div class="modal-body">
         <!--Uses the simple_form gem, the url:'# if you haven't found
@@ -130,7 +127,7 @@
     </div>
   </div>
 </div>
-<!--Comment modal end-->
+
 
 <div class="col-10 offset-1"</div>
   <!--<h1 class="float-left">Comments</h1> I don't need this text here-->
@@ -140,6 +137,7 @@
     Add a comment
   </button>
 </div>
+<!--Comment modal end-->
 
 <!--Make sure to wrap col-12, col-sm-6 in a div class="row" for them to work-->
 <div class="row">
@@ -155,7 +153,6 @@
     </blockquote>
   </div>
 <% end %>
-
 
 
 
