@@ -49,6 +49,7 @@ body {
   .clear {
     clear: both;
 }
+
 /* Styles for blockquotes */
 blockquote {
   background: #f9f9f9;
@@ -70,3 +71,15 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+
+.button-float-right { 
+  float: right;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+h3 {
+  color: black;
+  font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+}
+

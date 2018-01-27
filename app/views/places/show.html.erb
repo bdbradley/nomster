@@ -45,7 +45,7 @@
 
 <br />
 
-  <div class="float-right">
+  <div class="button-float-right">
     <!--if user is the current user then they can only see the places that they've added-->
     <% if current_user && current_user == @place.user %>
     <!--Lets user edit place, only shows edit button to user logged in-->
@@ -55,7 +55,7 @@
     <% end %>
   </div>
 </div>
-<!--make sure to add clear class in master.scss for clear to work-->
+<!--make sure to add clear class in master.scss for clear to work, it resets the 'float-right' from above-->
 
 <div class="clear"></div>
 
@@ -70,8 +70,7 @@
         <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
       </div>
       <div class="modal-body">
-        <!--Uses the simple_form gem, the url:'# if you haven't found
-        the path yet' is where the comment form should direct to-->
+        <!--booyah-box .css template from master.scss-->
         <div class="booyah-box col-12">
           <h1>Add a photo</h1>
           <%= simple_form_for @photo, url:  place_photos_path(@place) do |f| %>
@@ -90,10 +89,11 @@
 </div>
 
 <div class="col-10 offset-1"</div>
-  <!--Make sure data-target and id are unique to each modal i.e. mymodal and mymodal1-->
+  <!--Make sure data-target and id are unique to each modal i.e. mymodal and mymodal1
+    otherwise the code will direct it to whatever form is in 'mymodal'-->
   <!--Code for modal-->
   <!-- Button trigger modal (Modal code listed above)-->
-  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="btn btn-primary btn-lg button-float-right" data-toggle="modal" data-target="#myModal">
     Add a photo
   </button>
 </div>
@@ -112,7 +112,7 @@
         <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
       </div>
       <div class="modal-body">
-        <!--Uses the simple_form gem, the url:'# if you haven't found
+        <!--Uses the simple_form gem, the url:'#' will direct to nothing but make the code work if you haven't found
         the path yet' is where the comment form should direct to-->
         <%= simple_form_for @comment, url:  place_comments_path(@place) do |f| %>
           <%= f.input :message %>
@@ -133,7 +133,7 @@
   <!--<h1 class="float-left">Comments</h1> I don't need this text here-->
   <!--Code for modal-->
   <!-- Button trigger modal (Modal code listed above)-->
-  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal1">
+  <button type="button" class="btn btn-primary btn-lg button- float-right" data-toggle="modal" data-target="#myModal1">
     Add a comment
   </button>
 </div>
