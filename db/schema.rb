@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20180121031212) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "picture"
-    t.index ["place_id"], name: "index_photos_on_place_id", using: :btree
   end
 
   create_table "places", force: :cascade do |t|
